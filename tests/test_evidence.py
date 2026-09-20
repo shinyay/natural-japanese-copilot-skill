@@ -6,8 +6,9 @@ import unittest
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
-EVIDENCE = REPOSITORY.joinpath(
-    "docs", "evidence", "app-development-check.json"
+EVIDENCE_FILES = (
+    REPOSITORY.joinpath("docs", "evidence", "app-development-check.json"),
+    REPOSITORY.joinpath("docs", "evidence", "app-v0.1.0-rc-check.json"),
 )
 
 
@@ -15,9 +16,9 @@ def nonempty_string(value: object) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
-class DevelopmentEvidenceTests(unittest.TestCase):
-    def test_app_development_evidence_has_required_shape(self):
-        data = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+class AppEvidenceTests(unittest.TestCase):
+    def assert_evidence_shape(self, path: Path) -> None:
+        data = json.loads(path.read_text(encoding="utf-8"))
         self.assertIs(type(data), dict)
         self.assertIs(type(data.get("schema_version")), int)
         self.assertEqual(data["schema_version"], 1)
@@ -40,6 +41,18 @@ class DevelopmentEvidenceTests(unittest.TestCase):
             with self.subTest(section="method", key=key):
                 self.assertTrue(nonempty_string(method.get(key)))
         self.assertIs(type(method.get("files_changed_by_check")), bool)
+        self.assertFalse(method["files_changed_by_check"])
+
+        skill = data.get("skill")
+        self.assertIs(type(skill), dict)
+        self.assertTrue(nonempty_string(skill.get("selector_used")))
+        self.assertEqual(skill.get("load_result"), "success")
+        if path.name == "app-v0.1.0-rc-check.json":
+            self.assertEqual(
+                skill.get("selector_used"),
+                "natural-japanese-copilot",
+            )
+            self.assertTrue(nonempty_string(skill.get("source_commit")))
 
         limits = data.get("limits")
         self.assertIs(type(limits), list)
@@ -66,6 +79,11 @@ class DevelopmentEvidenceTests(unittest.TestCase):
                     all(nonempty_string(item) for item in invariants)
                 )
                 self.assertEqual(case.get("result"), "preserved")
+
+    def test_app_evidence_has_required_shape(self):
+        for path in EVIDENCE_FILES:
+            with self.subTest(path=path.name):
+                self.assert_evidence_shape(path)
 
 
 if __name__ == "__main__":

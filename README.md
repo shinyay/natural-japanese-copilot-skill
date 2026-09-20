@@ -63,7 +63,7 @@ URL、機械可読なキーは勝手に変更しません。
 
 - Python 3.10、3.13、3.14で63件のunit testsがすべて成功
 - 24件のsemantic review casesを用意
-- 公開改名前に、同じruntime instructionsを使うdevelopment buildが
+- publicなmainから導入した`natural-japanese-copilot`が、
   新しいCopilot App sessionで読み込まれることを確認
 - 8件の固定例で、条件、否定、確度、数値、帰属の保持を確認
 

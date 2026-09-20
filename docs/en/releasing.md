@@ -155,11 +155,11 @@ gh skill install shinyay/natural-japanese-copilot-skill natural-japanese-copilot
    attribution.
 6. Check the passing and failing checker exit codes.
 
-A pre-rename development build has loaded the same runtime instructions.
-Before release, recheck loading under the public name
-`natural-japanese-copilot`. Where a client has a picker, check the public name
-there and record the client and version. The same UI is not a release
-requirement across all clients.
+`natural-japanese-copilot`, installed at personal scope from public main, has
+loaded successfully in a new Copilot App session. After publishing the tag,
+repeat the check pinned to `v0.1.0`. Where a client has a picker, check the
+public name there and record the client and version. The same UI is not a
+release requirement across all clients.
 
 ## Final checklist
 

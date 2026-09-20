@@ -147,11 +147,11 @@ gh skill install shinyay/natural-japanese-copilot-skill natural-japanese-copilot
 5. 条件、否定、確度、数値、帰属が保持されるか確認する。
 6. checkerの成功例と失敗例の終了コードを確認する。
 
-公開改名前のdevelopment buildでは、同じruntime instructionsの読み込みを
-確認済みです。release前には、公開名`natural-japanese-copilot`での
-読み込みを再確認します。pickerがあるclientでは公開名の表示も確認し、
-結果にはclientとversionを添えます。すべてのclientで同じUIになることは
-release条件にしません。
+publicなmainから個人用へ導入した公開名`natural-japanese-copilot`を、
+新しいCopilot App sessionで読み込めることを確認済みです。
+tag公開後は、同じ手順を`v0.1.0`へ固定して再確認します。
+pickerがあるclientでは公開名の表示も確認し、結果にはclientとversionを
+添えます。すべてのclientで同じUIになることはrelease条件にしません。
 
 ## 最終checklist
 

@@ -76,6 +76,7 @@ class RepositoryValidatorTests(unittest.TestCase):
             "tests/test_validate_repository.py": "pass\n",
             "docs/en/guide.md": "# Guide\n",
             "docs/evidence/app-development-check.json": "{}\n",
+            "docs/evidence/app-v0.1.0-rc-check.json": "{}\n",
             "docs/ja/guide.md": "# ガイド\n",
         }
         for relative, content in root_files.items():
@@ -182,17 +183,20 @@ class RepositoryValidatorTests(unittest.TestCase):
             errors,
         )
 
-    def test_development_evidence_is_required_without_a_language_pair(self):
-        evidence = self.root.joinpath(
-            "docs", "evidence", "app-development-check.json"
-        )
-        evidence.unlink()
-        errors = validate_repository(self.root)
-        self.assertIn(
-            "required public file is missing: "
-            "docs/evidence/app-development-check.json",
-            errors,
-        )
+    def test_evidence_is_required_without_a_language_pair(self):
+        for name in (
+            "app-development-check.json",
+            "app-v0.1.0-rc-check.json",
+        ):
+            with self.subTest(name=name):
+                evidence = self.root.joinpath("docs", "evidence", name)
+                evidence.unlink()
+                errors = validate_repository(self.root)
+                self.assertIn(
+                    f"required public file is missing: docs/evidence/{name}",
+                    errors,
+                )
+                evidence.write_text("{}\n", encoding="utf-8")
 
     def test_personal_paths_and_session_markers_are_rejected(self):
         content = "\n".join(

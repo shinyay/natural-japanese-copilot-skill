@@ -67,8 +67,8 @@ commands, URLs, or machine-readable keys.
 
 - All 63 unit tests passed on Python 3.10, 3.13, and 3.14
 - 24 semantic review cases are included
-- Before the public rename, a development build using the same runtime
-  instructions loaded successfully in a new Copilot App session
+- `natural-japanese-copilot`, installed from the public main branch, loaded
+  successfully in a new Copilot App session
 - Eight fixed examples preserved conditions, negation, certainty, numbers,
   and attribution
 

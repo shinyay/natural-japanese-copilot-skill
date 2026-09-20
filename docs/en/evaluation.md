@@ -23,7 +23,7 @@ demonstrate an effect.
 | --- | --- | --- |
 | Unit tests | All 63 passed on Python 3.10, 3.13, and 3.14 | Defined checker, release-layout, workflow, and evidence-record behavior |
 | Semantic review cases | 24 cases | A case set for human comparison of meaning |
-| Copilot App loading | A pre-rename development build succeeded in a new session | The same runtime instructions loaded in the observed App environment |
+| Copilot App loading | The public name installed from public main succeeded in a new session | `natural-japanese-copilot` loaded in the observed App environment |
 | Fixed examples | Eight preserved conditions, negation, certainty, numbers, and attribution | Those inputs and review dimensions |
 
 ## Unit tests
@@ -85,14 +85,17 @@ For v0.1.0, eight repeatable inputs were reviewed for preservation of:
 This records that the selected dimensions were preserved in those eight
 examples. It is not a random sample, controlled comparison, blind review, or
 statistical test.
-The inputs, outputs, review dimensions, environment, and uncaptured fields are
-published in [`app-development-check.json`](../evidence/app-development-check.json).
+The public-name inputs, outputs, review dimensions, environment, and
+uncaptured fields are published in
+[`app-v0.1.0-rc-check.json`](../evidence/app-v0.1.0-rc-check.json).
+The pre-rename record remains available in
+[`app-development-check.json`](../evidence/app-development-check.json).
 
 ## App observation
 
-Before the public rename, a development build using the current runtime
-instructions loaded in a new Copilot App session. Display and loading under
-the public name `natural-japanese-copilot` will be rechecked before release.
+`natural-japanese-copilot`, installed at personal scope from the public main
+branch, loaded as a skill in a new Copilot App session. The release-candidate
+record above includes the eight actual outputs and review method.
 
 This result cannot be generalized to every Copilot client, version, operating
 system, or organization configuration. UI presentation alone is not a

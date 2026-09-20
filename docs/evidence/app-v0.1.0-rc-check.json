@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-09-20",
+  "kind": "v0.1.0_release_candidate_observation",
+  "environment": {
+    "client": "GitHub Copilot App",
+    "client_version": "not recorded",
+    "operating_system": "Windows",
+    "model": "not recorded",
+    "session": "new local session"
+  },
+  "skill": {
+    "selector_used": "natural-japanese-copilot",
+    "source": "shinyay/natural-japanese-copilot-skill@main",
+    "source_commit": "470a86fad4315d690e1f75f66dfbba5eccb5eb18",
+    "load_result": "success",
+    "references_read": [
+      "references/translation.md",
+      "references/review.md"
+    ]
+  },
+  "method": {
+    "prompt": "Translate eight fixed English sentences into calm, natural Japanese for technical readers without adding or omitting meaning.",
+    "reviewer": "project maintainer",
+    "review": "Manual source-to-output comparison against the listed invariants",
+    "automation": "No automatic translation score was used",
+    "files_changed_by_check": false
+  },
+  "cases": [
+    {
+      "id": "counts-and-condition",
+      "source": "When the cache is disabled, the client retries at most five failed requests once each.",
+      "output": "キャッシュが無効の場合、クライアントは失敗したリクエストのうち最大5件を、それぞれ1回だけ再試行します。",
+      "invariants_reviewed": [
+        "cache disabled",
+        "client",
+        "failed requests",
+        "at most five requests",
+        "one retry for each request"
+      ],
+      "result": "preserved"
+    },
+    {
+      "id": "capability-and-limitation",
+      "source": "You can export the results as CSV, but you cannot edit existing files with this feature.",
+      "output": "結果はCSV形式でエクスポートできますが、この機能では既存のファイルを編集できません。",
+      "invariants_reviewed": [
+        "export is a capability",
+        "CSV",
+        "existing files cannot be edited with this feature"
+      ],
+      "result": "preserved"
+    },
+    {
+      "id": "partial-negation",
+      "source": "Not all regions support this option.",
+      "output": "このオプションに対応していないリージョンもあります。",
+      "invariants_reviewed": [
+        "not all rather than none",
+        "regions",
+        "this option"
+      ],
+      "result": "preserved"
+    },
+    {
+      "id": "unnecessary-versus-prohibited",
+      "source": "Restarting the service is not required. The client must not store the access token.",
+      "output": "サービスの再起動は不要です。クライアントはアクセストークンを保存してはいけません。",
+      "invariants_reviewed": [
+        "restart is not required",
+        "storage is prohibited",
+        "client",
+        "access token"
+      ],
+      "result": "preserved"
+    },
+    {
+      "id": "unconfirmed-schedule",
+      "source": "The rollout may start in October. The date has not been confirmed.",
+      "output": "ロールアウトは10月に始まる可能性があります。開始日は確定していません。",
+      "invariants_reviewed": [
+        "October",
+        "possibility rather than promise",
+        "date is unconfirmed"
+      ],
+      "result": "preserved"
+    },
+    {
+      "id": "percentage-points",
+      "source": "The rate increased from 10% to 12%, a rise of 2 percentage points.",
+      "output": "割合は10%から12%に上昇し、上昇幅は2パーセントポイントです。",
+      "invariants_reviewed": [
+        "10 percent",
+        "12 percent",
+        "increase",
+        "2 percentage points rather than a 2 percent relative increase"
+      ],
+      "result": "preserved"
+    },
+    {
+      "id": "timezone",
+      "source": "Maintenance starts on September 25, 2026, at 18:00 UTC.",
+      "output": "メンテナンスは2026年9月25日18:00（UTC）に開始します。",
+      "invariants_reviewed": [
+        "September 25, 2026",
+        "18:00",
+        "UTC",
+        "maintenance start"
+      ],
+      "result": "preserved"
+    },
+    {
+      "id": "reported-claim",
+      "source": "The vendor says the update improves performance. We have not verified this claim.",
+      "output": "ベンダーは、この更新によってパフォーマンスが向上すると説明しています。当方では、この主張を検証していません。",
+      "invariants_reviewed": [
+        "vendor attribution",
+        "performance improvement is a claim",
+        "the claim was not verified by the speaker"
+      ],
+      "result": "preserved"
+    }
+  ],
+  "artifact_example": {
+    "source_case": "unconfirmed-schedule",
+    "heading": "10月にロールアウト開始の可能性",
+    "body": "ロールアウトは10月に始まる可能性があります。",
+    "note": "開始日は確定していません。",
+    "result": "The heading retains uncertainty and the note retains the unconfirmed date."
+  },
+  "limits": [
+    "This is one manually reviewed release-candidate observation, not a statistical evaluation.",
+    "The source was the public main branch before the v0.1.0 tag was created.",
+    "Client and model versions were not captured.",
+    "The observation does not establish behavior across all models, clients, genres, or projects.",
+    "Word, PowerPoint, spreadsheet, and HTML files were not generated or visually inspected."
+  ]
+}

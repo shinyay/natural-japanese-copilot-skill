@@ -43,6 +43,7 @@ REQUIRED_REPOSITORY_FILES = frozenset(
         "CONTRIBUTING.en.md",
         "CONTRIBUTING.md",
         "docs/evidence/app-development-check.json",
+        "docs/evidence/app-v0.1.0-rc-check.json",
         "LICENSE",
         "README.en.md",
         "README.md",

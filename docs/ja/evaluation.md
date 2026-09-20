@@ -22,7 +22,7 @@
 | --- | --- | --- |
 | unit tests | Python 3.10、3.13、3.14で63件すべて成功 | checker、release構成、workflow、evidence記録の定義済み動作 |
 | semantic review cases | 24件 | 人が意味差を確認するためのcase集合 |
-| Copilot App load | 公開改名前のdevelopment buildが新しいsessionで成功 | 同じruntime instructionsを確認したApp環境で読み込めた |
+| Copilot App load | publicなmainから導入した公開名で新しいsessionに成功 | 確認したApp環境で`natural-japanese-copilot`を読み込めた |
 | 固定例 | 8件で条件、否定、確度、数値、帰属を保持 | その8入力と確認観点 |
 
 ## unit tests
@@ -81,14 +81,16 @@ v0.1.0では、同じ入力を繰り返し確認できる8件の例で、次の�
 
 これは8件すべてで対象の観点を確認したという記録です。無作為標本、
 比較試験、blind review、統計的検定ではありません。
-入力、出力、確認観点、実行環境と未記録項目は
-[`app-development-check.json`](../evidence/app-development-check.json)で公開しています。
+公開名称での入力、出力、確認観点、実行環境と未記録項目は
+[`app-v0.1.0-rc-check.json`](../evidence/app-v0.1.0-rc-check.json)で公開しています。
+改名前の記録も
+[`app-development-check.json`](../evidence/app-development-check.json)に残しています。
 
 ## Appでの確認
 
-公開改名前に、現在と同じruntime instructionsを使うdevelopment buildが、
-新しいCopilot App sessionで読み込まれることを確認しました。公開名
-`natural-japanese-copilot` の表示や読み込みはrelease前に再確認します。
+publicなmainから個人用へ導入した`natural-japanese-copilot`を、
+新しいCopilot App sessionからskillとして読み込めることを確認しました。
+固定8例の実出力と確認方法は、上記のrelease candidate記録に含まれます。
 
 この結果は、すべてのCopilot client、version、OS、organization設定へ
 一般化できません。UI表示だけを互換性の条件にしません。
