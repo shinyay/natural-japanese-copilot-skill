@@ -1,0 +1,110 @@
+name: バグ報告 / Bug report
+description: 再現できる不具合を報告します / Report a reproducible problem
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。機密情報、認証情報、顧客データ、未公開の脆弱性情報は記載しないでください。
+
+        Thank you for the report. Do not include confidential information, credentials, customer data, or unpublished vulnerability details.
+
+        セキュリティ上の問題は公開Issueではなく、Security Policyに従ってprivate vulnerability reportingを利用してください。
+
+        For security issues, follow the Security Policy and use private vulnerability reporting instead of a public issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version / バージョン
+      description: 使用したskillのversionまたはtag / Skill version or tag used
+      placeholder: v0.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: client
+    attributes:
+      label: Client and environment / クライアントと環境
+      description: Copilot client、version、OS、Python version（checkerの場合） / Copilot client, version, OS, and Python version for checker issues
+      placeholder: Copilot App ..., Windows 11, Python 3.10/3.13/3.14
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area / 対象
+      options:
+        - Skill behavior / skillの動作
+        - Installation or loading / 導入・読み込み
+        - Checker
+        - Documentation / ドキュメント
+        - Examples
+        - Other / その他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-scope
+    attributes:
+      label: Installation scope / 導入scope
+      options:
+        - Project via gh (.agents/skills/natural-japanese-copilot)
+        - Personal (~/.copilot/skills/natural-japanese-copilot)
+        - Manual GitHub Copilot project (.github/skills/natural-japanese-copilot)
+        - Other / その他
+        - Not applicable / 該当なし
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem / 問題
+      description: 実際に起きたことを簡潔に説明してください / Briefly describe what happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce / 再現手順
+      description: 最小限の安全な入力で再現手順を示してください / Use the smallest safe input that reproduces the issue
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior / 期待する動作
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior / 実際の動作
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized output / 秘密情報を除いた出力
+      description: 必要な場合だけ、秘密情報を削除したlogやchecker JSONを貼ってください / Include redacted logs or checker JSON only when needed
+      render: shell
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation / 確認
+      options:
+        - label: 公開Issueに秘密情報や未公開の脆弱性情報を含めていません / This public issue contains no secrets or unpublished vulnerability details
+          required: true
+        - label: 新しいsessionでも確認しました（該当する場合） / I also checked in a new session when applicable
+          required: true

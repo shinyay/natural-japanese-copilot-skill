@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "expected_surface_ids": [
+    "slide-03-title",
+    "slide-03-body",
+    "slide-03-note"
+  ],
+  "checks": [
+    {
+      "id": "uncertain-heading",
+      "surface": "slide-03-title",
+      "source_excerpt": "The rollout may start in October.",
+      "allowed": [
+        "可能性"
+      ],
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "id": "uncertain-body",
+      "surface": "slide-03-body",
+      "source_excerpt": "The rollout may start in October.",
+      "allowed": [
+        "始まる可能性があります"
+      ],
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "id": "unconfirmed-note",
+      "surface": "slide-03-note",
+      "source_excerpt": "The date has not been confirmed.",
+      "allowed": [
+        "まだ確定していません"
+      ],
+      "min_count": 1,
+      "max_count": 1
+    }
+  ]
+}

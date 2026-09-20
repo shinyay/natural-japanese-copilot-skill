@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "expected_surface_ids": ["body"],
+  "checks": [
+    {
+      "id": "cache-condition",
+      "surface": "body",
+      "source_excerpt": "When the cache is disabled",
+      "allowed": ["キャッシュが無効な場合"],
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "id": "request-limit",
+      "surface": "body",
+      "source_excerpt": "the client retries at most five failed requests",
+      "allowed": ["クライアントは失敗したリクエストを最大5件"],
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "id": "retry-count",
+      "surface": "body",
+      "source_excerpt": "once each",
+      "allowed": ["それぞれ1回だけ"],
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "id": "uncertain-rollout",
+      "surface": "body",
+      "source_excerpt": "The rollout may start in October.",
+      "allowed": ["10月に始まる可能性があります"],
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "id": "unconfirmed-date",
+      "surface": "body",
+      "source_excerpt": "The date has not been confirmed.",
+      "allowed": ["日程はまだ確定していません"],
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "id": "api-identifier",
+      "surface": "body",
+      "source_excerpt": "Call fetch_items()",
+      "allowed": ["fetch_items()"],
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "id": "argument",
+      "surface": "body",
+      "source_excerpt": "with --limit=5",
+      "allowed": ["--limit=5"],
+      "min_count": 1,
+      "max_count": 1
+    }
+  ]
+}

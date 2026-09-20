@@ -1,0 +1,79 @@
+name: 機能提案 / Feature request
+description: skill、checker、docsの改善を提案します / Propose an improvement to the skill, checker, or docs
+title: "[Feature] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提案ありがとうございます。目的、守るべき意味、適用しない例を具体的にしてください。
+
+        Thank you for the proposal. Describe the goal, meaning constraints, and cases where the change must not apply.
+
+        秘密情報や未公開の脆弱性情報は記載しないでください。セキュリティ上の問題はSecurity Policyに従って非公開で報告してください。
+
+        Do not include secrets or unpublished vulnerability details. Report security issues privately according to the Security Policy.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area / 対象
+      options:
+        - Skill behavior / skillの動作
+        - Installation or loading / 導入・読み込み
+        - Checker
+        - Documentation / ドキュメント
+        - Examples
+        - Other / その他
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case / 利用場面
+      description: 誰が、何のために、どのような文章や成果物で必要とするか / Who needs this, for what purpose, and in what text or artifact
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change / 提案内容
+      description: 期待する動作や文書変更を説明してください / Describe the desired behavior or documentation change
+    validations:
+      required: true
+
+  - type: textarea
+    id: invariants
+    attributes:
+      label: Meaning and compatibility to preserve / 保持する意味と互換性
+      description: 条件、否定、確度、数値、帰属、識別子、既存利用者への影響 / Conditions, negation, certainty, numbers, attribution, identifiers, and compatibility impact
+    validations:
+      required: true
+
+  - type: textarea
+    id: cases
+    attributes:
+      label: Positive and negative cases / positive・negative cases
+      description: 改善すべき例と、同じ変更を適用してはいけない例を示してください / Give one case that should improve and one where the change must not apply
+      placeholder: |
+        Positive:
+        Negative:
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives / 代替案
+      description: 検討した別の方法や、現状の回避策 / Other approaches or current workarounds
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation / 確認
+      options:
+        - label: この提案は、未確認の効果や一般的な優位性を前提にしていません / This request does not assume unverified effects or general superiority
+          required: true
+        - label: 公開Issueに秘密情報や未公開の脆弱性情報を含めていません / This public issue contains no secrets or unpublished vulnerability details
+          required: true

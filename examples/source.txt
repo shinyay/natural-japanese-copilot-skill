@@ -1,0 +1,3 @@
+When the cache is disabled, the client retries at most five failed requests once each.
+The rollout may start in October. The date has not been confirmed.
+Call fetch_items() with --limit=5.

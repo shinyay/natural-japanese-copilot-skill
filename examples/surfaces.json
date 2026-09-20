@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "surfaces": [
+    {
+      "id": "slide-03-title",
+      "kind": "title",
+      "markup": "plain",
+      "text": "10月に展開開始の可能性"
+    },
+    {
+      "id": "slide-03-body",
+      "kind": "body",
+      "markup": "plain",
+      "text": "展開は10月に始まる可能性があります。"
+    },
+    {
+      "id": "slide-03-note",
+      "kind": "note",
+      "markup": "plain",
+      "text": "開始日はまだ確定していません。"
+    }
+  ]
+}

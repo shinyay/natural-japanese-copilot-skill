@@ -1,0 +1,76 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  PYTHONUTF8: "1"
+
+concurrency:
+  group: release-${{ github.event.release.id }}
+  cancel-in-progress: false
+
+jobs:
+  publish-assets:
+    name: Validate and upload release assets
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Validate release tag
+        id: version
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          if [[ ! "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+            echo "Release tag must be canonical vMAJOR.MINOR.PATCH." >&2
+            exit 2
+          fi
+          printf 'version=%s\n' "${RELEASE_TAG#v}" >> "$GITHUB_OUTPUT"
+
+      # Release-event workflows come from the default branch; build the published tag.
+      - name: Check out published tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+
+      - name: Validate public repository
+        run: python scripts/validate_repository.py
+
+      - name: Run full unit test suite
+        run: python -m unittest discover -s tests -v
+
+      - name: Build deterministic release
+        run: >-
+          python scripts/build_release.py
+          --version ${{ steps.version.outputs.version }}
+
+      - name: Verify release archive
+        run: >-
+          python scripts/build_release.py
+          --version ${{ steps.version.outputs.version }}
+          --verify-only
+
+      - name: Upload release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: >-
+          gh release upload "$RELEASE_TAG"
+          dist/natural-japanese-copilot-v*.zip
+          dist/SHA256SUMS
+          --clobber
+          --repo "$GITHUB_REPOSITORY"
