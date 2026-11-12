@@ -54,7 +54,7 @@ python -B skills/natural-japanese-copilot/scripts/review_japanese.py examples/su
 
 ### 3. semantic review
 
-- 24件のcaseを確認する
+- 28件のcaseを確認する
 - 変更した規則にpositive caseとnegative caseがある
 - 8件の固定例で条件、否定、確度、数値、帰属を確認する
 - 自動scoreや統計的評価として説明していない

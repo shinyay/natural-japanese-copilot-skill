@@ -55,7 +55,7 @@ Expected exit codes are `0`, `1`, and `0`.
 
 ### 3. Semantic review
 
-- Review all 24 cases
+- Review all 28 cases
 - Pair each changed rule with a positive and negative case
 - Review eight fixed examples for conditions, negation, certainty, numbers,
   and attribution

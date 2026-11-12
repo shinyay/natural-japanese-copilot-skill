@@ -169,6 +169,34 @@
       "acceptable": "提案は検討中で、予算も開始時期も未確定です。",
       "unacceptable": "チームは提案の実施を進めています。",
       "invariants": ["検討中", "未承認", "時期不明", "要約でも確定へ格上げしない"]
+    },
+    {
+      "id": "established-loanword",
+      "source": "Manual approval has become the bottleneck in our release process.",
+      "acceptable": "手動の承認が、リリースプロセスのボトルネックになっています。",
+      "unacceptable": "手動の承認が、リリースプロセスの詰まりになっています。",
+      "invariants": ["定着した外来語を和語へ言い換えない", "ボトルネックになっているのは手動の承認", "現在の状態として述べる"]
+    },
+    {
+      "id": "latin-script-term",
+      "source": "Open a PR after CI passes.",
+      "acceptable": "CIが通ってから、PRを作成してください。",
+      "unacceptable": "継続的統合が通ってから、変更取り込み要求を作成してください。",
+      "invariants": ["アルファベット表記が一般的な略語を訳さない", "CIが通った後に作成するという順序", "依頼の強さを変えない"]
+    },
+    {
+      "id": "false-friend-loanword",
+      "source": "The vendor's claim has not been verified.",
+      "acceptable": "ベンダーの主張は検証されていません。",
+      "unacceptable": "ベンダーのクレームは検証されていません。",
+      "invariants": ["英語と意味がずれるカタカナ語を使わない", "claimは苦情ではなく主張", "ベンダーの主張であることを残す", "未検証であることを残す"]
+    },
+    {
+      "id": "unestablished-katakana",
+      "source": "Enable this feature on the settings screen.",
+      "acceptable": "設定画面で、この機能を有効にしてください。",
+      "unacceptable": "設定画面で、このフィーチャーをイネーブルにしてください。",
+      "invariants": ["日本語で普通に言える語をカタカナにしない", "有効にする対象はこの機能", "操作する場所は設定画面", "依頼の強さを変えない"]
     }
   ]
 }
