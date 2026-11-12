@@ -4,6 +4,29 @@
 
 This file records notable changes in published versions.
 
+## [Unreleased]
+
+### 日本語
+
+- 日本語として定着した外来語はカタカナのまま使い、和語や漢語へ
+  言い換えない方針を`SKILL.md`と参照資料に追加
+- API、CI、PRのように、アルファベットで書くのが一般的な語は
+  そのまま書くことを明記
+- 英語と意味がずれるカタカナ語と、定着していないカタカナ語は
+  使わないという例外を明記
+- 外来語の表記に関するsemantic review casesを4件追加（合計28件）
+
+### English
+
+- Added guidance to `SKILL.md` and the references: keep loanwords that are
+  established in Japanese in katakana instead of replacing them with native or
+  Sino-Japanese words
+- Documented that terms usually written in Latin script, such as API, CI, and
+  PR, stay as they are
+- Documented exceptions for katakana words whose meaning differs from the
+  English source and for katakana words that are not established in Japanese
+- Added four semantic review cases on loanword notation (28 in total)
+
 ## [0.1.0] - 2026-09-20
 
 ### 日本語

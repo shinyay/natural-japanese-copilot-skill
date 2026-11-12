@@ -746,6 +746,10 @@ class InputAndCliTests(unittest.TestCase):
             "prohibition",
             "partial-negation",
             "unconfirmed-schedule",
+            "established-loanword",
+            "latin-script-term",
+            "false-friend-loanword",
+            "unestablished-katakana",
         ):
             self.assertIn(case_id, by_id)
 

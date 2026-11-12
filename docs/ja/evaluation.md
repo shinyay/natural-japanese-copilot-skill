@@ -53,8 +53,9 @@ skillがあらゆる文章で自然な日本語を作ることを示すもので
 
 ## semantic review cases
 
-`skills/natural-japanese-copilot/references/semantic-cases.json` には24件の
-caseがあります。各caseは次を持ちます。
+`skills/natural-japanese-copilot/references/semantic-cases.json` には28件の
+caseがあります。v0.1.0の24件に、外来語の表記に関する4件を加えました。
+各caseは次を持ちます。
 
 - 原文または依頼
 - `acceptable`
@@ -63,7 +64,8 @@ caseがあります。各caseは次を持ちます。
 
 主な観点は、能力、可能性、禁止と不要、部分否定、必要条件、数値と対象、
 割合、timezone、未確定日程、帰属、相関と因果、識別子、要件、UI label、
-曖昧な責任、未合意、引用内の命令、最小値、創作しないこと、表示面です。
+曖昧な責任、未合意、引用内の命令、最小値、創作しないこと、表示面、
+外来語の表記です。
 
 このJSONの形式が正しいことと、翻訳品質が高いことは別です。caseは
 自動scoreではなく、人が意味の差を確認するために使います。

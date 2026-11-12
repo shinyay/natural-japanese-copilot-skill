@@ -133,6 +133,13 @@ The skill does not ban a phrase in every context. Inanimate subjects, nominal
 headings, or repeated polite endings can remain when they fit the artifact.
 Checker findings are review candidates, not mandatory edits.
 
+Loanwords follow the same approach. Katakana loanwords that are established in
+Japanese, and terms usually written in Latin script such as API or PR, are
+used as they are. Replacing them with native or Sino-Japanese words only to
+reduce katakana can make the text sound unnatural. Katakana words whose meaning
+differs from the English source, and katakana words that are not established
+in Japanese, are not used.
+
 A new rule needs both:
 
 - A positive case that the change improves

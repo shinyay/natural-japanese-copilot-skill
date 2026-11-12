@@ -11,6 +11,10 @@ terminology, identifiers, quotations, and required document structure.
 Do not invent details, experiences, emotions, conclusions, or commitments to
 make the writing sound human.
 
+Keep loanwords that are established in Japanese in katakana, and keep terms
+usually written in Latin script, such as API or PR, as they are. Do not
+replace them with native or Sino-Japanese equivalents just to reduce katakana.
+
 Honor explicit language, style, quotation, and verbatim-copy requests.
 Keep code, commands, URLs, and machine-readable keys intact.
 Use the relevant document, slide, spreadsheet, or HTML skill for the file

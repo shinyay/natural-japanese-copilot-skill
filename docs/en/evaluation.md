@@ -54,8 +54,9 @@ They do not show that the skill produces natural Japanese for every text.
 
 ## Semantic review cases
 
-`skills/natural-japanese-copilot/references/semantic-cases.json` contains 24
-cases. Each case includes:
+`skills/natural-japanese-copilot/references/semantic-cases.json` contains 28
+cases: the 24 cases from v0.1.0 and four cases on loanword notation. Each case
+includes:
 
 - Original text or task
 - `acceptable`
@@ -67,7 +68,8 @@ requirement, partial negation, necessary conditions, number-to-subject
 relationships, percentages, time zones, unconfirmed schedules, attribution,
 correlation versus causation, identifiers, requirements, UI labels, ambiguous
 responsibility, absence of agreement, instructions inside quotations,
-minimums, avoiding invented experience, and artifact surfaces.
+minimums, avoiding invented experience, artifact surfaces, and loanword
+notation.
 
 A valid JSON structure is not evidence of high translation quality. These
 cases support human meaning review, not automatic scoring.
